@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "rimraf dist && npm run build:backend && npm run build:frontend",
-    "build:frontend": "rimraf dist/public && cd frontend && npm install && npm run build && mv build ../dist/public",
+    "build:frontend": "rimraf dist/public && cd frontend && npm install && env-cmd -f ../.env npm run build && mv build ../dist/public",
     "build:backend": "cd backend && npm install && npm run build && mv build ../dist && cp .env.sample ../dist/.env",
     "start": "npm run build && cd dist && nodemon --watch .env server.js"
   },
@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
+    "env-cmd": "^10.1.0",
     "nodemon": "^2.0.4",
     "rimraf": "^3.0.2"
   }
