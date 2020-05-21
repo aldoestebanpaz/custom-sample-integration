@@ -1,0 +1,19 @@
+{
+  "name": "custom-sample-integration",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "rimraf dist && npm run build:backend && npm run build:frontend",
+    "build:frontend": "rimraf dist/public && cd frontend && npm install && npm run build && mv build ../dist/public",
+    "build:backend": "cd backend && npm install && npm run build && mv build ../dist && cp .env.sample ../dist/.env",
+    "start": "npm run build && cd dist && nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "rimraf": "^3.0.2"
+  }
+}
