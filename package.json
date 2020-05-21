@@ -6,7 +6,7 @@
     "build": "rimraf dist && npm run build:backend && npm run build:frontend",
     "build:frontend": "rimraf dist/public && cd frontend && npm install && npm run build && mv build ../dist/public",
     "build:backend": "cd backend && npm install && npm run build && mv build ../dist && cp .env.sample ../dist/.env",
-    "start": "npm run build && cd dist && nodemon server.js"
+    "start": "npm run build && cd dist && nodemon --watch .env server.js"
   },
   "keywords": [],
   "author": "",
